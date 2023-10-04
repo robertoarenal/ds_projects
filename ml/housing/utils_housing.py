@@ -164,9 +164,9 @@ class HousePredict(object):
     def __init__(self):
 
         try:
-            sys.path.index(os.path.join(str(pathlib.Path().absolute()), "housing"))
+            sys.path.index(os.path.join(str(pathlib.Path().absolute()), "ml/housing"))
         except ValueError:
-            sys.path.append(os.path.join(str(pathlib.Path().absolute()), "housing"))
+            sys.path.append(os.path.join(str(pathlib.Path().absolute()), "ml/housing"))
 
         
         scaler_path = os.path.join(str(pathlib.Path().absolute()), "ml/housing/scaler")
