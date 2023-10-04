@@ -168,11 +168,11 @@ class HousePredict(object):
         except ValueError:
             sys.path.append(os.path.join(str(pathlib.Path().absolute()), "housing"))
 
-        #scaler_path = os.path.join(str(pathlib.Path().absolute()), "scaler")
-        scaler_path = os.path.join(str(pathlib.Path().absolute()), "housing/scaler")
+        
+        scaler_path = os.path.join(str(pathlib.Path().absolute()), "ml/housing/scaler")
         scaler_file = scaler_path + "/scaled_features.pkl"
-        #model_path = os.path.join(str(pathlib.Path().absolute()), "model")
-        model_path = os.path.join(str(pathlib.Path().absolute()), "housing/model")
+    
+        model_path = os.path.join(str(pathlib.Path().absolute()), "ml/housing/model")
         model_file = model_path + "/forest_reg.pkl"
 
         self.scaler = load(open(scaler_file, 'rb'))
