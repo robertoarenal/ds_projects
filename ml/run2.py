@@ -44,7 +44,23 @@ def housePrices():
         ocean_distance = st.selectbox('Select house ocean distance', options = ['<1H OCEAN', 'NEAR OCEAN', 'INLAND'])
 
     st.subheader('Selected values')
+    pred, df = HousePredict().predict(longitude=longitude,
+                                  latitude=latitude,
+                                  housing_median_age=housing_median_age,
+                                  total_rooms=total_rooms,
+                                  total_bedrooms=total_bedrooms,
+                                  population=population,
+                                  households=households,
+                                  median_income=median_income,
+                                  ocean_proximity=ocean_distance)
+
+    if st.checkbox("Show input DataFrame:"):
+        st.write('The values that you have selected are')
+        st.write(df.head())
         
+    st.header('PREDICTED HOUSE PRICE!')
+    st.write("Your selection of inputs result in a price of ", pred[0], " !!")
+
 def main():
     st.set_page_config(layout="wide")
     st.sidebar.header('Choose the Machine learning application:')
