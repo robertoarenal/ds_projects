@@ -1,4 +1,5 @@
 import streamlit as st
+from housing.utils_housing import HousePredict
 
 def main():
     st.set_page_config(layout="wide")
