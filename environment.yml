@@ -1,0 +1,17 @@
+name: ml_app
+channels:
+  - conda-forge
+dependencies:
+  # - python
+  # - pandas
+  # - numpy
+  # - matplotlib
+  # - joblib
+  # - scikit-learn
+  - pip
+  - pip:
+      - streamlit
+  
+  
+  
+ 
