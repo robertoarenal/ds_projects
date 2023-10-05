@@ -132,11 +132,11 @@ class PredictSentiment(object):
         #os.environ["PYTHONPATH"] = "/usr/src/nlp/reviews"
         #print(os.environ["PYTHONPATH"])
         try:
-            sys.path.index(os.path.join(str(pathlib.Path().absolute()), "sentiment")) # Or os.getcwd() for this directory
+            sys.path.index(os.path.join(str(pathlib.Path().absolute()), "nlp/sentiment")) # Or os.getcwd() for this directory
         except ValueError:
-            sys.path.append(os.path.join(str(pathlib.Path().absolute()), "sentiment")) # Or os.getcwd() for this directory
+            sys.path.append(os.path.join(str(pathlib.Path().absolute()), "nlp/sentiment")) # Or os.getcwd() for this directory
             
-        model_path = os.path.join(str(pathlib.Path().absolute()), "sentiment/model")
+        model_path = os.path.join(str(pathlib.Path().absolute()), "nlp/sentiment/model")
         model_file = model_path + "/logreg_tfidf.pkl"
 
         #self.model = load(open(model_file, 'rb'))
