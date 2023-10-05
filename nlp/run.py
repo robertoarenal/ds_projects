@@ -2,6 +2,9 @@ import streamlit as st
 import seaborn as sns
 import matplotlib.pyplot as plt 
 
+from sentiment.utils import PredictSentiment
+import sentiment.utils
+
 def sentimentAnalysis():
     st.header('Sentiment Analysis')
 
@@ -12,7 +15,7 @@ def sentimentAnalysis():
 
     user_input = st.text_input("Write your sentence: ", ' ')
     inp_arr = [user_input]
-    
+
     if st.button('Predict'):
         #pred,prob,df_tokens=utils.PredictSentiment().predict(inp_arr)
         pred,prob,df_tokens=PredictSentiment().predict(inp_arr)
