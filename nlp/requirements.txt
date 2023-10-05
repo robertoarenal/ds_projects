@@ -3,4 +3,5 @@ numpy
 seaborn
 matplotlib
 scikit-learn
-spacy
+spacy==2.3.7
+en_core_web_sm==2.3.1
