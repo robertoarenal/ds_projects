@@ -112,11 +112,11 @@ class TopicTrain(object):
 class TopicPredict(object):
     def __init__(self):
         try:
-            sys.path.index(os.path.join(str(pathlib.Path().absolute()), "articles"))
+            sys.path.index(os.path.join(str(pathlib.Path().absolute()), "nlp/articles"))
         except ValueError:
-            sys.path.append(os.path.join(str(pathlib.Path().absolute()), "articles"))
+            sys.path.append(os.path.join(str(pathlib.Path().absolute()), "nlp/articles"))
 
-        model_path = os.path.join(str(pathlib.Path().absolute()), "articles/model")
+        model_path = os.path.join(str(pathlib.Path().absolute()), "nlp/articles/model")
         model_file = model_path + "/rm_tfidf.pkl"
         self.model = joblib.load(model_file)
 
