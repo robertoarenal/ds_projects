@@ -96,6 +96,7 @@ class TopicTrain(object):
         """
         articles_df = self._loadArticles('data')
         #articles_df['article_lemmatized']=articles_df.article.map(lemmatize)
+        
         nlp = spacy.load('en_core_web_sm')
         text_clf = Pipeline([('tfidf', TfidfVectorizer(tokenizer=spacy_tokenizer,min_df=3)),\
                      ('clf', RandomForestClassifier())])
@@ -111,11 +112,11 @@ class TopicTrain(object):
 class TopicPredict(object):
     def __init__(self):
         try:
-            sys.path.index(os.path.join(str(pathlib.Path().absolute()), "nlp/articles"))
+            sys.path.index(os.path.join(str(pathlib.Path().absolute()), "articles"))
         except ValueError:
-            sys.path.append(os.path.join(str(pathlib.Path().absolute()), "nlp/articles"))
+            sys.path.append(os.path.join(str(pathlib.Path().absolute()), "articles"))
 
-        model_path = os.path.join(str(pathlib.Path().absolute()), "nlp/articles/model")
+        model_path = os.path.join(str(pathlib.Path().absolute()), "articles/model")
         model_file = model_path + "/rm_tfidf.pkl"
         self.model = joblib.load(model_file)
 
