@@ -45,6 +45,28 @@ def artClass():
 
     uploaded_file = st.file_uploader("Upload your article HERE:",type=['txt'])
 
+    if uploaded_file is not None:
+        with st.form(key='my_form'):
+            encoding = 'utf-8'
+            art = str(uploaded_file.read(), encoding)
+            text_input = st.text_area(label='Loaded article',value = art, height=250)
+            submit_button = st.form_submit_button(label='Process')
+
+        if submit_button:
+            #file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
+            #st.write(file_details)
+            
+            pred, prob, prob_df, imp_df = TopicPredict().predict(art)
+            st.header("The article's topic is: ")
+            st.text(pred[0] + '(' + str(prob*100) + '%)')
+            
+            col1, col2 = st.columns(2)
+            col1.header("Class probabilities")
+            col1.table(prob_df)
+            col2.header("Top 10 Features")
+            col2.table(imp_df)
+            #st.write(imp_df)
+
 def spamDetection():
 
     st.title('Article classification')
