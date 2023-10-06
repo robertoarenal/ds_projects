@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 from sentiment.utils import PredictSentiment
 from articles.utils_articles import countVec,lemmatize, TopicPredict
+from spam.utils_spam import SpamPredict, SpamAnalyse
 
 def sentimentAnalysis():
     st.header('Sentiment Analysis')
@@ -75,7 +76,6 @@ def spamDetection():
     This app tells if the text provided is prone to be spam or not spam. 
 
     """)
-    
 
     my_expander = st.expander(label='Inspect Model', expanded=False)
     with my_expander:
@@ -83,6 +83,40 @@ def spamDetection():
         st.text("The model is a supporting vector machine trained with 80% of data and tested with the rest 20%.")
         st.text("As preprocesing step, TfIdf was used before training the model.")
         clicked = st.button("View model's performance")
+
+    if clicked:
+            sa = SpamAnalyse()
+            cm, df = sa.analyseModel()
+            fig, ax = plt.subplots()
+            sns.heatmap(cm, annot=True, fmt='g', ax=ax)
+            
+            # labels, title and ticks
+            ax.set_xlabel('Predicted labels')
+            ax.set_ylabel('True labels')
+            ax.set_title('Confusion Matrix')
+            ax.xaxis.set_ticklabels(['Not spam', 'Spam'])
+            ax.yaxis.set_ticklabels(['Not spam', 'Spam'])
+
+            col1, col2 = st.columns(2)
+            col1.write(fig)
+            col2.write('Metrics: ')
+            col2.table(df)
+            #col2.write(df)
+
+    
+    with st.form(key = 'my_form'):
+        text = st.text_area(label = "Paste the email content here:", height=250)
+        submit_button = st.form_submit_button(label='Predict')
+
+    if submit_button:
+        pred = SpamPredict().predict(text)
+        if pred==0:
+            st.header("This text is predicted to be NOT SPAM")
+        
+        if pred==1:
+            w = '<p style="font-family:sans-serif; color:Red; font-size: 42px;">WARNING!!</p>'
+            st.markdown(w, unsafe_allow_html=True)
+            st.header("This text is predicted to be SPAM")
 
 def main():
     st.set_page_config(layout="wide")
