@@ -3,6 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt 
 
 from sentiment.utils import PredictSentiment
+from articles.utils_articles import countVec,lemmatize, TopicPredict
 
 def sentimentAnalysis():
     st.header('Sentiment Analysis')
