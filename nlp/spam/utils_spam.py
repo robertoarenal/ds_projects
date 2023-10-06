@@ -51,7 +51,7 @@ class SpamTrain(object):
 
 class SpamAnalyse(object):
     def __init__(self):
-        model_path = os.path.join(str(pathlib.Path().absolute()), "spam/model")
+        model_path = os.path.join(str(pathlib.Path().absolute()), "nlp/spam/model")
         #model_path = os.path.join(str(pathlib.Path().absolute()), "model")
         model_file = model_path + "/svc_tfidf.pkl"
         self.model = joblib.load(model_file)
