@@ -4,6 +4,14 @@ from housing.utils_housing import HousePredict
 def housePrices():
     st.title('Housing price!')
     st.write('An app to know how much a house in California would cost')
+    # st.write("Check out the [github repository](https://github.com/robertoarenal/ds_projects/tree/main/ml/housing) and the [jupyter notebook](https://github.com/robertoarenal/ds_projects/blob/main/ml/housing/housing.ipynb)")
+    st.markdown(
+        """
+        <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/tree/main/ml/housing/'>GitHub repo</a></p>
+        <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/blob/main/ml/housing/housing.ipynb'>Jupyter notebook</a></p>
+        """,
+        unsafe_allow_html=True
+    )
 
     with st.sidebar.expander('Input variables for house prediction'):
         #st.sidebar.header('Input variables from model for house prediction')
