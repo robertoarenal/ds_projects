@@ -8,7 +8,7 @@ def housePrices():
     st.markdown(
         """
         <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/tree/main/ml/housing/'>GitHub repo</a></p>
-        <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/blob/main/ml/housing/housing.ipynb'>Jupyter notebook</a></p>
+        <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/blob/main/ml/housing/housing_final.ipynb'>Jupyter notebook</a></p>
         """,
         unsafe_allow_html=True
     )
