@@ -43,7 +43,14 @@ def artClass():
         
         The possible classes are: entretainment, politics, sports, business, and tech.""")
 
-    st.write("The dataset used to train this model was retrieved from http://mlg.ucd.ie/datasets/bbc.html")
+    # st.write("The dataset used to train this model was retrieved from http://mlg.ucd.ie/datasets/bbc.html")
+    st.markdown(
+        """
+        <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/tree/main/nlp/articles/'>GitHub repo</a></p>
+        <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/blob/main/nlp/articles/articles_final.ipynb'>Jupyter notebook</a></p>
+        """,
+        unsafe_allow_html=True
+    )
 
     uploaded_file = st.file_uploader("Upload your article HERE:",type=['txt'])
 
