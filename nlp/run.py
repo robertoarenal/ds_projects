@@ -14,6 +14,14 @@ def sentimentAnalysis():
         whether a sentence is positive or negative. The data used to develop this model comes from 3 different
         sources, all of them being customers' reviews about the service/product they consumed.""")
 
+    st.markdown(
+            """
+            <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/tree/main/nlp/sentiment/'>GitHub repo</a></p>
+            <p style='font-size:12px'>Go to <a href='https://github.com/robertoarenal/ds_projects/blob/main/nlp/sentiment/sentiment_final.ipynb'>Jupyter notebook</a></p>
+            """,
+            unsafe_allow_html=True
+        )
+
     user_input = st.text_input("Write your sentence: ", ' ')
     inp_arr = [user_input]
 
